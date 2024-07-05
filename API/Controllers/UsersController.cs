@@ -2,10 +2,9 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API;
-[ApiController]
-[Route("/api/[controller]")] // /api/users
-public class UsersController : ControllerBase
+namespace API.Controllers;
+// /api/users
+public class UsersController : BaseApiController
 {
     private readonly DataContext _context;
     public UsersController(DataContext context)
