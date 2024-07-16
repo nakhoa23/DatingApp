@@ -19,16 +19,16 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(string username, string password)
+        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await UserExists(username)) return BadRequest();
+            if (await UserExists(registerDto.Username)) return BadRequest();
 
             using var hmac = new HMACSHA512();
 
             var user = new AppUser
             {
-                UserName = username.ToLower(),
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
+                UserName = registerDto.Username.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
 
@@ -36,7 +36,7 @@ namespace API.Controllers
             await _context.SaveChangesAsync();
             return new UserDto
             {
-                Username = username,
+                Username = user.UserName,
                 Token = _tokenService.CreateToken(user)
             };
         }
