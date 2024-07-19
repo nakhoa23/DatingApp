@@ -1,0 +1,19 @@
+import { Photo } from "./photo"
+
+export interface Member {
+  id: number
+  userName: string
+  age: number
+  photoUrl: string
+  knownAs: string
+  created: string
+  lastActive: string
+  gender: string
+  introduction: string
+  interests: string
+  lokingFor: any
+  city: string
+  country: string
+  photos: Photo[]
+}
+
