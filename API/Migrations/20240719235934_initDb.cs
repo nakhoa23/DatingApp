@@ -27,7 +27,7 @@ namespace API.Migrations
                     Gender = table.Column<string>(type: "TEXT", nullable: false),
                     Introduction = table.Column<string>(type: "TEXT", nullable: true),
                     Interests = table.Column<string>(type: "TEXT", nullable: true),
-                    LokingFor = table.Column<string>(type: "TEXT", nullable: true),
+                    LookingFor = table.Column<string>(type: "TEXT", nullable: true),
                     City = table.Column<string>(type: "TEXT", nullable: false),
                     Country = table.Column<string>(type: "TEXT", nullable: false)
                 },
