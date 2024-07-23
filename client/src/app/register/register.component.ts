@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
-import { JsonPipe, NgIf } from '@angular/common';
+import {  NgIf } from '@angular/common';
 import { TextInputComponent } from "../_forms/text-input/text-input.component";
 import { DatePickerComponent } from "../_forms/date-picker/date-picker.component";
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe, NgIf, TextInputComponent, DatePickerComponent],
+  imports: [ReactiveFormsModule, NgIf, TextInputComponent, DatePickerComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -67,6 +67,6 @@ export class RegisterComponent implements OnInit {
 
   getDateOnly(dob: string | undefined) {
     if(!dob) return;
-    return new Date(dob).toISOString().slice(0);
+    return new Date(dob).toISOString().slice(0,10);
   }
 }

@@ -67,6 +67,8 @@ public class UsersController : BaseApiController
             PublicId = result.PublicId,
         };
 
+        if(user.Photos.Count == 0) photo.isMain = true;
+
         user.Photos.Add(photo);
 
         if (await _userRepository.SaveAllAsync()) 
