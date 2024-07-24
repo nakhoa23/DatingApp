@@ -20,9 +20,13 @@ public class UsersController : BaseApiController
         _photoService = photoService;
     }
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
     {
-        var users = await _userRepository.GetMembersAsync();
+        userParams.CurrentUserName = User.GetUsername();
+        var users = await _userRepository.GetMembersAsync(userParams);
+
+        Response.AddPaginationHeader(users);
+
         return Ok(users);
     }
 
