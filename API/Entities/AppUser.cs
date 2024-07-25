@@ -31,8 +31,7 @@ public class AppUser
 
     public List<Photo> Photos { get; set; } = []; //navigation property
 
-    //public int GetAge()
-    //{
-    //    return DateOfBirth.CalculateAge();
-    //}
+
+    public List<UserLike> LikeByUsers { get; set; } = []; // được like
+    public List<UserLike> LikedUsers { get; set; } = []; // đã like
 }
