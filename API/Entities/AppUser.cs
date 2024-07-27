@@ -29,9 +29,15 @@ public class AppUser
 
     public required string Country { get; set; }
 
-    public List<Photo> Photos { get; set; } = []; //navigation property
+    //navigation properties
+
+    public List<Photo> Photos { get; set; } = []; 
 
 
     public List<UserLike> LikeByUsers { get; set; } = []; // được like
     public List<UserLike> LikedUsers { get; set; } = []; // đã like
+
+    public List<Message> MessagesSent { get; set; } = [];
+    public List<Message> MessagesReceived { get; set; } = [];
+
 }
