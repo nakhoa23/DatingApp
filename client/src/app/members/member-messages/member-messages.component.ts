@@ -18,7 +18,7 @@ export class MemberMessagesComponent implements OnInit{
   messages = input.required<Message[]>();
   messageContent = '';
   updateMessage = output<Message>();
-  ngOnInit(): void {
+  ngOnInit(): void {  
 
   }
 
