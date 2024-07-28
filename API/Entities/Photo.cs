@@ -13,6 +13,6 @@ namespace API.Entities
         //Navigation property
 
         public int AppUserId { get; set; }
-        public AppUser AppUser { get; set; } = null;
+        public AppUser AppUser { get; set; } = null!;
     }
 }
