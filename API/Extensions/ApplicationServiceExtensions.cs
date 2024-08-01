@@ -27,6 +27,7 @@ namespace API.Extensions
             services.AddScoped<ILikesRepository, LikesRepository>();
             
             services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddSignalR();
             services.AddSingleton<PresenceTracker>();
